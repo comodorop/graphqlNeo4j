@@ -12,10 +12,13 @@ export class CatsService {
     @InjectModel(Cat.name) private catModel: Model<CatDocument>,
     private readonly neo4jService: Neo4jService) { }
 
-  async create(createCatDto: CatInput): Promise<Cat> {
+  async create(createCatDto: CatInput): Promise<any> {
+    //mongo
     const createdCat = new this.catModel(createCatDto);
+    createdCat.save()
+    //nestjs
     this.neo4jService.write(`CREATE (n:cat {name: '${createCatDto.name}', age: '${createCatDto.age.toString()}', breed: '${createCatDto.breed}' })`)
-    return createdCat.save();
+    return { name: createCatDto.name, age: createCatDto.age, breed: createCatDto.breed };
   }
 
   async findAll(): Promise<any[]> {

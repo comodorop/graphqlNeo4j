@@ -3,8 +3,8 @@ import { Int } from "type-graphql"
 
 @ObjectType()
 export class CreateCatDto {
-  @Field(() => ID)
-  id: string
+  // @Field(() => ID)
+  // id: string
   @Field()
   readonly name: string
   @Field(() => Int)

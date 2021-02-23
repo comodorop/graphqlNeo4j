@@ -10,11 +10,6 @@ export class CatResolver {
 
   ) { }
 
-  // @Query(() => String)
-  // async hello() {
-  //   return 'hello'
-  // }
-
   @Query(() => [CreateCatDto])
   async cats() {
     return this.catServices.findAll()

@@ -5,9 +5,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { CatsModule } from './cats/cats.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Neo4jModule } from 'nest-neo4j'
-// import { Neo4jModule, Neo4jModuleConfig } from '@iammhc/nestjs-neo4j';
-
-
 
 @Module({
   imports: [
